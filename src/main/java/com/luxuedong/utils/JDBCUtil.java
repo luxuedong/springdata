@@ -27,7 +27,7 @@ public class JDBCUtil {
 
         Class.forName(drverClass);
         Connection connection = DriverManager.getConnection(url, user, password);
-        
+
         return connection;
     }
 }
