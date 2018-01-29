@@ -1,8 +1,8 @@
 package com.luxuedong.utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.io.InputStream;
+import java.sql.*;
+import java.util.Properties;
 
 /**
  * JDBC工具类
@@ -19,15 +19,46 @@ public class JDBCUtil {
      *
      * @return 所获取的JDBCConnection
      */
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        String url = "jdbc:mysql:///spring_data";
-        String user = "root";
-        String password = "luxd5657";
-        String drverClass = "com.mysql.jdbc.Driver";
+    public static Connection getConnection() throws Exception {
 
-        Class.forName(drverClass);
-        Connection connection = DriverManager.getConnection(url, user, password);
+        InputStream resourceAsStream = JDBCUtil.class.getClassLoader().getResourceAsStream("db.properties");
+        Properties properties = new Properties();
+        properties.load(resourceAsStream);
+
+
+        Class.forName(properties.getProperty("jdbc.drverClass"));
+        Connection connection = DriverManager.getConnection(properties.getProperty("jdbc.url"), properties.getProperty("jdbc.user"), properties.getProperty("jdbc.password"));
 
         return connection;
+    }
+
+    /**
+     * 释放
+     * @param resultSet
+     * @param statement
+     * @param connection
+     */
+    public static void release(ResultSet resultSet, Statement statement,Connection connection){
+        if (resultSet != null){
+            try {
+                resultSet.close();
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        if (statement != null){
+            try{
+                statement.close();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        if (connection != null){
+            try{
+                connection.close();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * Created by luxuedong
@@ -14,7 +13,7 @@ public class JDBCUtilTest {
 
 
     @Test
-    public void testConnection() throws SQLException, ClassNotFoundException {
+    public void testConnection() throws Exception {
         Connection connection = JDBCUtil.getConnection();
         Assert.assertNotNull(connection);
     }
