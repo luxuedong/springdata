@@ -1,5 +1,6 @@
 package com.luxuedong.utils;
 
+import com.luxuedong.utils.JDBCUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

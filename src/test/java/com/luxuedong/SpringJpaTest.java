@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * Created by luxuedong
  * 2018/1/29 下午5:09
  */
-public class DataSourceTest {
+public class SpringJpaTest {
 
 
 
@@ -21,7 +21,7 @@ public class DataSourceTest {
 
     @Before
     public void setup(){
-        ctx = new ClassPathXmlApplicationContext("beans-jdbcTemplate.xml");
+        ctx = new ClassPathXmlApplicationContext("beans-jpa.xml");
         System.out.println("setup()");
     }
 
@@ -33,14 +33,7 @@ public class DataSourceTest {
 
     @Test
     public void testDataSource(){
-        DataSource datasource = (DataSource)ctx.getBean("datasource");
-        System.out.println("datasource() "+datasource);
     }
 
-    @Test
-    public void testJdbcTemplate(){
-        JdbcTemplate jdbcTemplate = (JdbcTemplate)ctx.getBean("jdbcTemplate");
-        System.out.println("jdbcTemplate() "+jdbcTemplate);
-    }
 
 }

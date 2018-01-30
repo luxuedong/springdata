@@ -13,7 +13,7 @@ import java.util.List;
  * Created by luxuedong
  * 2018/1/25 下午5:00
  */
-public class StudentRepositoryImpl implements StudentRepository{
+public class StudentRepositoryJdbcImpl implements StudentRepository{
 
     public List<Student> queryAll() {
 

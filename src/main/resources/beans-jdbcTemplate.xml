@@ -10,6 +10,7 @@
        ">
 
     <context:property-placeholder location="classpath:db.properties"/>
+
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.drverClass}"/>
         <property name="url" value="${jdbc.url}"/>

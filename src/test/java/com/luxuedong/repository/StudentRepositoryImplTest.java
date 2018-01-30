@@ -13,7 +13,7 @@ public class StudentRepositoryImplTest {
 
     @Test
     public void testQueryAll(){
-        StudentRepository studentRepository = new StudentRepositoryImpl();
+        StudentRepository studentRepository = new StudentRepositoryJdbcImpl();
 
         List<Student> students = studentRepository.queryAll();
 

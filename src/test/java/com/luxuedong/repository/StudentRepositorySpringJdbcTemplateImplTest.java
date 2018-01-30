@@ -9,8 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by luxuedong
  * 2018/1/29 下午5:42
@@ -23,7 +21,7 @@ public class StudentRepositorySpringJdbcTemplateImplTest {
 
     @Before
     public void setup(){
-        ctx = new ClassPathXmlApplicationContext("beans.xml");
+        ctx = new ClassPathXmlApplicationContext("beans-jdbcTemplate.xml");
         studentRepository = (StudentRepository)ctx.getBean("studentRepositorySpringJdbcTemplateImpl");
         System.out.println("setup()");
     }
